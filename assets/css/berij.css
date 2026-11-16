@@ -1,0 +1,318 @@
+/* ====== Берий Палас — оверрайды поверх style.css ======
+   Палитра: navy #12213D + бежевая (cream) акцентная кнопка,
+   светло-серая поверхность, премиум-сериф Tenor Sans.
+================================================================ */
+
+:root {
+  --b-navy:      #12213D;
+  --b-navy-deep: #13274A;
+  --b-navy-mid:  #6B7E9E;
+  --b-cream-1:   #D7C2BF;
+  --b-cream-2:   #FFFFFF;
+  --b-pill-1:    #E7E7E7;
+  --b-pill-2:    #FFFFFF;
+  --b-card-1:    #E5E5E5;
+  --b-card-2:    #F2F2F2;
+  --b-bg:        #F8F8F8;
+}
+
+body.berij {
+  background: #ECEFF2;
+}
+body.berij .page {
+  background: var(--b-bg);
+}
+
+/* ---- Hero ---- */
+body.berij .hero { position: relative; }
+body.berij .hero__img {
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+body.berij .hero__logo-img {
+  position: absolute;
+  top: 32px;
+  right: auto;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 220px;
+  z-index: 3;
+}
+
+/* ---- Декоративные орнаменты (звезда + луна) справа от заголовка ---- */
+body.berij .b-ornaments {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: 0 0 auto;
+}
+body.berij .b-moon {
+  width: 60px;
+  height: auto;
+}
+body.berij .b-star {
+  width: 24px;
+  height: auto;
+  margin-top: -20px; /* звёздочка чуть выше луны */
+}
+
+/* ---- Заголовок + орнаменты (справа) ---- */
+body.berij .b-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 26px 0 22px;
+}
+body.berij .b-title {
+  font-family: 'Tenor Sans', 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--b-navy);
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  margin: 0;
+  line-height: 1.15;
+  text-align: left;
+  flex: 1 1 auto;
+}
+
+/* ---- Главная кнопка: тёмно-navy с белым текстом для контраста на светлом фоне ---- */
+body.berij .btn-primary {
+  background: linear-gradient(115deg, var(--b-navy-mid) 0%, var(--b-navy-deep) 100%);
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(18,33,61,.25);
+  text-shadow: none;
+}
+
+/* ---- Section title "МАТЕРИАЛЫ" ---- */
+body.berij .section-title {
+  font-family: 'Tenor Sans', 'Cormorant Garamond', serif;
+  font-size: 35px;
+  font-weight: 400;
+  color: var(--b-navy);
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  margin: 36px 0 14px;
+  text-align: center;
+}
+
+/* ---- Меню ---- */
+body.berij .menu__item {
+  background: linear-gradient(135deg, var(--b-pill-1) 0%, var(--b-pill-2) 100%);
+  border-radius: 10px;
+  color: var(--b-navy);
+  font-weight: 600;
+}
+
+/* ---- Сабпейдж-героы (commission/purchase) ---- */
+body.berij .b-subhero {
+  border-radius: 24px;
+  background-color: transparent;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 14px;
+}
+body.berij .b-subhero .subpage-hero__title {
+  font-family: 'Tenor Sans', 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 400;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  color: #fff;
+  background: transparent;
+  -webkit-mask: none;
+          mask: none;
+  border-radius: 0;
+  padding: 0;
+  text-shadow: 0 2px 10px rgba(0,0,0,.5);
+  left: 24px;
+  top: 24px;
+  bottom: auto;
+  line-height: 1.1;
+  text-align: left;
+  box-shadow: none;
+}
+
+/* ---- Карточка комиссии: тёмно-navy фон, белый текст ---- */
+body.berij .b-info-card {
+  background: linear-gradient(135deg, var(--b-navy-mid) 0%, var(--b-navy-deep) 100%);
+  border-radius: 20px;
+  padding: 22px 26px;
+  box-shadow: 0 10px 24px rgba(18,33,61,.18);
+  -webkit-mask-image: none;
+          mask-image: none;
+}
+body.berij .b-info-card .info-card__label {
+  font-family: 'Tenor Sans', 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 8px;
+  text-transform: none;
+  opacity: .9;
+}
+body.berij .b-info-card .info-card__value {
+  font-family: 'Tenor Sans', 'Prosto One', serif;
+  font-size: 32px;
+  color: #fff;
+  font-weight: 400;
+  letter-spacing: .02em;
+}
+body.berij .b-info-card .info-card__value span {
+  font-family: 'Tenor Sans', serif;
+  font-size: 22px;
+  color: #fff;
+  font-weight: 400;
+  margin-left: 6px;
+}
+
+/* ---- Способы покупки: 2 колонки masonry ---- */
+body.berij .plan {
+  background: linear-gradient(135deg, var(--b-card-1) 0%, var(--b-card-2) 100%);
+}
+body.berij .plan__head {
+  background: linear-gradient(135deg, var(--b-navy-mid) 0%, var(--b-navy-deep) 100%);
+  color: #FFFFFF;
+  font-family: 'Involve', 'Montserrat', sans-serif;
+  -webkit-mask-image: none;
+          mask-image: none;
+  border-radius: 22px;
+  box-shadow: 0 6px 14px rgba(18,33,61,.18);
+  padding: 18px 12px;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.2;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  word-break: keep-all;
+}
+body.berij .plan__body { color: #5B5B5B; }
+body.berij .plan__body strong { color: var(--b-navy); font-weight: 700; }
+body.berij .plan__divider {
+  margin: 14px 0;
+  border-top: 1px solid rgba(18,33,61,.12);
+}
+
+/* ---- Калькулятор: тёмно-navy кнопка ---- */
+body.berij .b-calc-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+  width: 100%;
+  height: 67px;
+  padding: 0 22px;
+  border-radius: 20px;
+  background: linear-gradient(115deg, var(--b-navy-mid) 0%, var(--b-navy-deep) 100%);
+  color: #fff;
+  font-family: 'Involve', 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 10px 24px rgba(18,33,61,.25);
+  text-shadow: none;
+}
+
+/* ---- Контакты — простой navy-фон со скруглением сверху ---- */
+body.berij .b-contacts-wrap {
+  position: relative;
+  margin: 40px -28px 0;
+}
+body.berij .b-contacts {
+  position: relative;
+  background: linear-gradient(180deg, var(--b-navy-mid) 0%, var(--b-navy-deep) 100%);
+  color: #fff;
+  margin: 0;
+  padding: 40px 28px 32px;
+  border-radius: 32px 32px 0 0;
+  -webkit-mask-image: none;
+          mask-image: none;
+}
+
+body.berij .b-contacts .contacts__title {
+  font-family: 'Tenor Sans', 'Cormorant Garamond', serif;
+  color: #fff;
+  font-weight: 400;
+  font-size: 36px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  text-align: left;
+  margin: 0 0 22px;
+}
+
+/* Телефоны: имя слева, номер справа в одной строке */
+body.berij .b-contacts .contacts__phone {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #FFFFFF 0%, #F0F0F0 100%);
+  padding: 14px 22px;
+  height: auto;
+  min-height: 58px;
+  gap: 16px;
+}
+body.berij .b-contacts .contacts__phone-name {
+  color: #5B5B5B;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+}
+body.berij .b-contacts .contacts__phone-number {
+  color: var(--b-navy);
+  font-size: 15px;
+  font-weight: 700;
+}
+body.berij .b-contacts .social { color: #fff; }
+
+/* Фонари свисают с верхнего правого угла */
+body.berij .b-lanterns {
+  position: absolute;
+  top: 12px;
+  right: 24px;
+  width: 100px;
+  height: auto;
+  opacity: 1;
+  z-index: 2;
+  pointer-events: none;
+}
+
+body.berij .b-info-card.info-card--accent {
+  background: linear-gradient(135deg, #1a3a6b 0%, #0d1f3c 100%);
+  border: 1.5px solid rgba(255,215,120,.35);
+  margin-top: 12px;
+}
+body.berij .b-info-card.info-card--accent .info-card__label {
+  color: #ffd87a;
+  opacity: 1;
+}
+body.berij .b-info-card.info-card--accent .info-card__value {
+  color: #ffd87a;
+}
+body.berij .b-info-card.info-card--accent .info-card__value span {
+  color: rgba(255,216,122,.8);
+}
+
+/* Countdown в стиле Берий */
+body.berij .countdown-banner--berij {
+  background: linear-gradient(135deg, var(--b-navy-mid) 0%, var(--b-navy-deep) 100%);
+  border: 1px solid rgba(195,160,90,.25);
+  margin: 0 0 16px;
+}
+body.berij .countdown-banner--berij .countdown-banner__label {
+  color: #f0d98a;
+}
+body.berij .countdown-banner--berij .ct-num { color: #fff; }
+body.berij .countdown-banner--berij .ct-sep { color: rgba(195,160,90,.5); }
+
+/* Иконка «База знаний» (inline SVG в цвет остальных иконок) */
+body.berij .b-kb-icon { color: var(--b-navy); padding: 3px; }

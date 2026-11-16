@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#4C8BB7">
+<title>Зафиксировать клиента — Резиденция Дарсан</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Prosto+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css?v=7">
+<link rel="stylesheet" href="assets/css/hub.css?v=2">
+</head>
+<body>
+<div class="page">
+
+  <div class="back-row">
+    <a href="index.html" class="back-link" id="back-link" aria-label="Назад">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </a>
+  </div>
+  <script>
+    // если пришли с известного таплинка — back ведёт на него
+    (function () {
+      var map = { 'Романов': 'romanov', 'Берий Палас': 'berij', 'Дарсан': 'darsan', 'Алеа': 'alea' };
+      var q = new URLSearchParams(location.search).get('object');
+      var link = document.getElementById('back-link');
+      if (link) link.href = (q && map[q]) || './';
+    })();
+  </script>
+
+  <h1 class="form-title">Зафиксировать клиента</h1>
+
+  <div class="regulation-block">
+    <p>Фиксация клиента по 4 последним цифрам телефона и ФИО защищает только от прямого обращения в отдел продаж на <strong>60 дней</strong>.</p>
+    <p>Для защиты от других агентств необходимо провести показ (онлайн или офлайн), после чего фиксация действует <strong>7 дней</strong>; по паспорту возможна фиксация на <strong>24 часа</strong>.</p>
+    <p>Комиссию получает агент, который первым довёл клиента до бронирования объекта.</p>
+    <a href="https://docs.google.com/document/d/1_VNFwMPKlm9scCer6qgJPZqevBVwrRUFi_Ix1EXz_9I/edit?usp=sharing" target="_blank" rel="noopener" class="regulation-link">📄 Полный регламент фиксации →</a>
+  </div>
+
+  <form id="lead-form" class="form" novalidate>
+
+    <label class="field">
+      <span class="field__label">ФИО агента <em>*</em></span>
+      <input type="text" name="agent_name" required autocomplete="name" placeholder="Иванов Иван Иванович">
+    </label>
+
+    <label class="field">
+      <span class="field__label">Номер телефона агента <em>*</em></span>
+      <input type="tel" name="agent_phone" required autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__">
+    </label>
+
+    <label class="field">
+      <span class="field__label">Название агентства <em>*</em></span>
+      <select name="agency_name" required>
+        <option value="" disabled selected>Выберите агентство</option>
+        <option>Авертон</option>
+        <option>АгентДеск</option>
+        <option>Адванта</option>
+        <option>Аксель Капитал</option>
+        <option>АН ДомРил</option>
+        <option>АН Монолит (ИП Михайлова)</option>
+        <option>Анфа</option>
+        <option>Асали</option>
+        <option>Аурус</option>
+        <option>Аякс</option>
+        <option>Берега</option>
+        <option>ВейвЭндВинс</option>
+        <option>Высота</option>
+        <option>Генезис Алушта</option>
+        <option>Голден Браун</option>
+        <option>Гончаров недвижимость</option>
+        <option>Града</option>
+        <option>ГРЦ Сочи</option>
+        <option>ДомХит (Евпатория)</option>
+        <option>ДомХит (Севастополь)</option>
+        <option>ДомХит (Симферополь)</option>
+        <option>Зайцев Групп</option>
+        <option>Империя (Сочи)</option>
+        <option>Интегрити</option>
+        <option>ИП Богданова</option>
+        <option>ИП Котова М.А.</option>
+        <option>ИП Морозов А.И.</option>
+        <option>ИП Рец Ольга Александровна</option>
+        <option>Иркон</option>
+        <option>Кайлас</option>
+        <option>Каньон</option>
+        <option>Команда Кравченко</option>
+        <option>КрымДом</option>
+        <option>Кубань Новострой</option>
+        <option>Курорт капитал</option>
+        <option>Лайт</option>
+        <option>ЛайтХаус (Севастополь)</option>
+        <option>Лето</option>
+        <option>Лехто</option>
+        <option>ЛидерИнвестСтрой</option>
+        <option>Малина ИП Снимченко</option>
+        <option>Метражи у моря</option>
+        <option>Миралис</option>
+        <option>Монолит девелопмент</option>
+        <option>Море и горы</option>
+        <option>Мореин</option>
+        <option>Москоу Хоум Реалити</option>
+        <option>Новостройки.ру</option>
+        <option>НОТО</option>
+        <option>НОФ</option>
+        <option>Оазис</option>
+        <option>Ок Недвижимость</option>
+        <option>Оникс</option>
+        <option>Остров</option>
+        <option>Простор, ИП Терер</option>
+        <option>Профит</option>
+        <option>Рай Юга</option>
+        <option>Ривьера</option>
+        <option>РИФ</option>
+        <option>Рич Групп</option>
+        <option>РоялКост</option>
+        <option>Самолет</option>
+        <option>Свои в Крыму</option>
+        <option>Север</option>
+        <option>Си вью</option>
+        <option>Сириус Групп</option>
+        <option>СкайМарк</option>
+        <option>Смарт Риелт</option>
+        <option>Солнце и море</option>
+        <option>Таврос (Симферополь)</option>
+        <option>ТопДевелопмент</option>
+        <option>ТрендАгент</option>
+        <option>Туманов</option>
+        <option>ФлетХаус</option>
+        <option>Центр недвижимости АЛЬЯН</option>
+        <option>Цифра</option>
+        <option>ЮБК Элит</option>
+        <option>Югрупп</option>
+        <option>Юхаус</option>
+        <option>Эксперт Групп</option>
+        <option>Элитный Сочи</option>
+        <option>Эстадель</option>
+        <option>Этажи Ялта</option>
+        <option>Century21 (ЮБК)</option>
+        <option>DaMax</option>
+        <option>Global Invest</option>
+        <option>Havilla</option>
+        <option>Nika Estste</option>
+        <option>One more</option>
+        <option>People Estate</option>
+        <option>Seven</option>
+        <option>Veyra Estate</option>
+        <option value="Другое">Другое</option>
+      </select>
+    </label>
+
+    <label class="field">
+      <span class="field__label">Объект <em>*</em></span>
+      <select name="object" required>
+        <option value="" disabled selected>Выберите объект</option>
+        <option value="Дарсан">Дарсан</option>
+        <option value="Берий Палас">Берий Палас</option>
+        <option value="Романов">Романов</option>
+        <option value="Алеа">Алеа</option>
+      </select>
+    </label>
+
+    <label class="field">
+      <span class="field__label">ФИО клиента <em>*</em></span>
+      <input type="text" name="client_name" required placeholder="Петров Пётр Петрович">
+    </label>
+
+    <label class="field">
+      <span class="field__label">Последние 4 цифры телефона клиента <em>*</em></span>
+      <input type="text" name="client_phone_last4" required inputmode="numeric" pattern="\d{4}" maxlength="4" placeholder="1234">
+      <span class="field__hint">Только 4 цифры, без дефисов и пробелов</span>
+    </label>
+
+    <label class="field">
+      <span class="field__label">С кем из менеджеров работаете? <em>*</em></span>
+      <select name="manager" required>
+        <option value="" disabled selected>Выберите менеджера</option>
+        <option>Еще ни с кем</option>
+        <option>Арсений Голобоков</option>
+        <option>Артём</option>
+        <option>Мариам</option>
+        <option>Арсений Налобин</option>
+        <option>Алексей</option>
+        <option>Валерия</option>
+      </select>
+    </label>
+
+    <label class="field">
+      <span class="field__label">Комментарий</span>
+      <span class="field__hint field__hint--other" id="other-agency-hint" style="display:none;color:#B26B00;font-weight:500">Укажите название вашего агентства в комментарии</span>
+      <textarea name="comment" rows="4" placeholder="Дополнительная информация о клиенте"></textarea>
+    </label>
+
+    <label class="checkbox">
+      <input type="checkbox" name="consent" required checked>
+      <span>Я согласен(а) на обработку персональных данных в соответствии с ФЗ-152</span>
+    </label>
+
+    <button type="submit" class="btn-primary btn-primary--full btn-primary--neutral" id="submit-btn">
+      <span class="btn-primary__text">Отправить заявку</span>
+      <span class="btn-primary__spinner" aria-hidden="true"></span>
+    </button>
+
+    <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+
+  </form>
+
+  <div class="page-footer-space"></div>
+</div>
+<script src="assets/js/form.js?v=7"></script>
+</body>
+</html>

@@ -1,0 +1,243 @@
+/* ====== Резиденция Романов — оверрайды поверх style.css ======
+   Палитра: navy #12213D как основной цвет бренда,
+   бежево-кремовая поверхность для подложек, тёмно-navy текст.
+================================================================ */
+
+:root {
+  --r-navy:      #12213D;
+  --r-navy-deep: #0B1B38;
+  --r-navy-mid:  #38455F;
+  --r-beige-1:   #F1EBEA;
+  --r-beige-2:   #DCD3D1;
+  --r-beige-3:   #D7C2BF;
+  --r-brown-1:   #CEB1AB;
+  --r-brown-2:   #755C57;
+  --r-bg:        #F8F8F8;
+}
+
+body.romanov {
+  background: #ECEFF2;
+}
+body.romanov .page {
+  background: var(--r-bg);
+}
+
+/* ---- Hero ---- */
+body.romanov .hero__logo-img {
+  /* логотип Романов крупнее и центрируется по верху */
+  width: 180px;
+  top: 22px;
+  right: auto;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ---- Заголовок + сабтайтл + летящая чайка ---- */
+body.romanov .r-title-block {
+  position: relative;
+  margin-bottom: 8px; /* небольшой зазор перед кнопкой */
+}
+body.romanov .r-seagull {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+}
+body.romanov .r-seagull--hero {
+  right: -14px;
+  top: -8px;
+  width: 175px;
+  height: auto;
+}
+
+body.romanov .r-title {
+  font-family: 'Cormorant Garamond', 'Prosto One', serif;
+  font-size: 36px;
+  font-weight: 500;
+  color: var(--r-navy);
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  margin: 24px 0 4px;
+  line-height: 1.05;
+}
+body.romanov .r-subtitle {
+  font-family: 'Cormorant Garamond', 'Prosto One', serif;
+  font-style: italic;
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--r-navy);
+  margin: 0 0 22px;
+  line-height: 1.2;
+}
+
+/* ---- Главная кнопка (тёмно-navy) ---- */
+body.romanov .btn-primary {
+  background: linear-gradient(115deg, var(--r-navy-mid) 0%, var(--r-navy-deep) 100%);
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(11,27,56,.25);
+}
+
+/* ---- Section title "МАТЕРИАЛЫ" ---- */
+body.romanov .section-title {
+  font-family: 'Cormorant Garamond', 'Prosto One', serif;
+  font-size: 36px;
+  font-weight: 500;
+  color: var(--r-navy);
+  letter-spacing: .03em;
+  text-transform: uppercase;
+  margin: 32px 0 14px;
+}
+
+/* ---- Меню (бежевые таблетки, радиус 10) ---- */
+body.romanov .menu__item {
+  background: linear-gradient(135deg, var(--r-beige-2) 0%, #F0F0F0 100%);
+  border-radius: 10px;
+  color: var(--r-navy);
+  font-weight: 600;
+}
+body.romanov .menu__icon { color: var(--r-navy); }
+body.romanov .menu__icon img { filter: none; }
+
+/* ---- Кастомная плашка (как в Figma): фон-градиент + SVG-маска c "впадиной" сверху ---- */
+:root {
+  --r-plaque-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 214 151' preserveAspectRatio='none'><path d='M0 17.0557C0 7.63609 7.6125 0 17.0321 0C40.3921 0 79.9074 0 83.4873 0C88.5987 0 93.9919 2.03241 97.7994 5.22397C102.616 9.26176 102.229 13.6381 105.978 13.6381C109.726 13.6381 110.408 8.99582 114.156 5.22397C117.223 2.13792 121.994 0 127.105 0C130.721 0 172.709 0 196.968 0C206.388 0 214 7.63609 214 17.0557V133.818C214 143.238 206.364 150.874 196.944 150.874H17.0556C7.63608 150.874 0 143.238 0 133.818V17.0557Z' fill='black'/></svg>");
+}
+
+/* ---- Сабпейдж-героы (внутри секций commission/purchase) ---- */
+body.romanov .r-subhero {
+  border-radius: 24px;
+  background-color: transparent;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 14px;
+}
+body.romanov .r-subhero .subpage-hero__logo {
+  width: 52px;
+  top: 18px;
+  left: 20px;
+}
+body.romanov .r-subhero .subpage-hero__title {
+  font-family: 'Cormorant Garamond', 'Prosto One', serif;
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: .02em;
+  text-transform: uppercase;
+  color: #fff;
+  background: linear-gradient(135deg, var(--r-navy-mid) 0%, var(--r-navy-deep) 100%);
+  -webkit-mask-image: var(--r-plaque-mask);
+          mask-image: var(--r-plaque-mask);
+  -webkit-mask-size: 100% 100%;
+          mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+          mask-repeat: no-repeat;
+  border-radius: 0;
+  padding: 30px 28px 26px;
+  text-shadow: none;
+  left: 18px;
+  bottom: 22px;
+  box-shadow: none;
+  line-height: 1.05;
+  text-align: center;
+  display: inline-block;
+}
+
+/* ---- Карточка комиссии: гладиент бежевый, текст светлый ---- */
+body.romanov .r-info-card {
+  background: linear-gradient(135deg, var(--r-beige-3) 0%, #FFFFFF 100%);
+  border-radius: 20px;
+  padding: 22px 24px;
+  color: #fff;
+}
+body.romanov .r-info-card .info-card__label {
+  font-family: 'Cormorant Garamond', 'Prosto One', serif;
+  font-style: italic;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--r-navy);
+  margin-bottom: 6px;
+}
+body.romanov .r-info-card .info-card__value {
+  font-family: 'Prosto One', serif;
+  font-size: 36px;
+  color: var(--r-navy);
+  font-weight: 400;
+}
+body.romanov .r-info-card .info-card__value span {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--r-navy);
+}
+
+/* ---- Способы покупки: 2 колонки masonry ---- */
+body.romanov .plan {
+  background: linear-gradient(135deg, var(--r-beige-1) 0%, #F0F0F0 100%);
+}
+body.romanov .plan__head {
+  background: linear-gradient(135deg, var(--r-navy-mid) 0%, var(--r-navy-deep) 100%);
+  color: #FFFFFF;
+  font-family: 'Involve', 'Montserrat', sans-serif;
+  /* простые скруглённые углы — без впадины */
+  -webkit-mask-image: none;
+          mask-image: none;
+  border-radius: 22px;
+  box-shadow: 0 6px 14px rgba(11,27,56,.18);
+  padding: 18px 12px;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.2;
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  word-break: keep-all;
+  hyphens: none;
+}
+body.romanov .plan__body { color: #5B5B5B; }
+body.romanov .plan__divider {
+  margin: 16px 0;
+  border-top: 1px solid rgba(18,33,61,.12);
+}
+
+/* ---- Калькулятор: тёмно-navy кнопка как primary ---- */
+body.romanov .r-calc-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+  width: 100%;
+  height: 67px;
+  padding: 0 22px;
+  border-radius: 20px;
+  background: linear-gradient(115deg, var(--r-navy-mid) 0%, var(--r-navy-deep) 100%);
+  color: #fff;
+  font-family: 'Involve', 'Montserrat', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(11,27,56,.25);
+}
+
+/* ---- Контакты — светло-бежевый блок, тёмно-navy шапка ---- */
+body.romanov .r-contacts {
+  background: linear-gradient(180deg, var(--r-beige-1) 0%, #E8DEDB 100%);
+  color: var(--r-navy);
+}
+body.romanov .r-contacts .contacts__title {
+  font-family: 'Cormorant Garamond', 'Prosto One', serif;
+  color: var(--r-navy);
+  font-weight: 500;
+  font-size: 36px;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+}
+body.romanov .r-contacts .contacts__phone {
+  background: #FFFFFF;
+  color: var(--r-navy);
+}
+body.romanov .r-contacts .contacts__phone-number { color: var(--r-navy); }
+body.romanov .r-contacts .contacts__phone-name { color: #5B5B5B; }
+body.romanov .r-contacts .social { color: var(--r-navy); }

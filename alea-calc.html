@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#1B3B5A">
+<title>Калькулятор рассрочки — ЖК Алеа</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@1,500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --dark: #1B3B5A;
+    --mid: #2A5878;
+    --light: #F5F7FA;
+    --border: #D6E4EF;
+    --accent: #C8A96E;
+  }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--light);
+    color: var(--dark);
+    min-height: 100vh;
+    padding: 0 0 40px;
+  }
+  .page { max-width: 420px; margin: 0 auto; padding: 0 16px; }
+
+  .back-row { padding: 16px 0 4px; }
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px; height: 36px;
+    background: #fff;
+    border-radius: 10px;
+    border: 1.5px solid var(--border);
+    color: var(--dark);
+    text-decoration: none;
+  }
+  .back-link svg { width: 18px; height: 18px; }
+
+  .calc-header { margin: 20px 0 24px; }
+  .calc-header__sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--mid);
+    margin-bottom: 4px;
+  }
+  .calc-header__title {
+    font-size: 22px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    line-height: 1.15;
+  }
+
+  .card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 20px;
+    margin-bottom: 14px;
+    border: 1.5px solid var(--border);
+  }
+  .field-label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: #7A99B3;
+    margin-bottom: 10px;
+  }
+
+  /* Price input */
+  .price-wrap {
+    display: flex;
+    align-items: center;
+    background: var(--light);
+    border-radius: 12px;
+    border: 1.5px solid var(--border);
+    overflow: hidden;
+    transition: border-color .2s;
+  }
+  .price-wrap:focus-within { border-color: var(--mid); }
+  .price-input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--dark);
+    padding: 14px 0 14px 16px;
+    outline: none;
+    width: 0;
+  }
+  .price-unit {
+    font-size: 15px;
+    font-weight: 600;
+    color: #7A99B3;
+    padding-right: 16px;
+  }
+
+  /* Segment control */
+  .seg { display: flex; gap: 8px; flex-wrap: wrap; }
+  .seg-btn {
+    flex: 1;
+    min-width: 60px;
+    background: var(--light);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 6px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #7A99B3;
+    cursor: pointer;
+    text-align: center;
+    transition: all .18s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .seg-btn.active {
+    background: var(--dark);
+    border-color: var(--dark);
+    color: #fff;
+  }
+
+  /* Results */
+  .result-card {
+    background: linear-gradient(135deg, var(--dark) 0%, var(--mid) 100%);
+    border-radius: 18px;
+    padding: 22px 20px;
+    margin-bottom: 14px;
+    color: #fff;
+  }
+  .result-card__label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    opacity: .65;
+    margin-bottom: 6px;
+  }
+  .result-card__value {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -.01em;
+    line-height: 1;
+  }
+  .result-card__value span {
+    font-size: 16px;
+    font-weight: 600;
+    opacity: .7;
+    margin-left: 4px;
+  }
+
+  .result-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .result-row:last-child { border-bottom: none; }
+  .result-row__label { font-size: 13px; font-weight: 500; color: #7A99B3; }
+  .result-row__val { font-size: 14px; font-weight: 700; color: var(--dark); }
+
+  .note {
+    font-size: 11px;
+    color: #A0B8CC;
+    text-align: center;
+    margin-top: 6px;
+    line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="back-row">
+    <a href="alea-purchase" class="back-link" aria-label="Назад">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+    </a>
+  </div>
+
+  <div class="calc-header">
+    <p class="calc-header__sub">ЖК Алеа</p>
+    <h1 class="calc-header__title">Калькулятор<br>рассрочки</h1>
+  </div>
+
+  <!-- СТОИМОСТЬ -->
+  <div class="card">
+    <div class="field-label">Стоимость квартиры, ₽</div>
+    <div class="price-wrap">
+      <input class="price-input" id="price" type="number" inputmode="numeric" value="8000000" min="0" step="100000">
+      <span class="price-unit">₽</span>
+    </div>
+  </div>
+
+  <!-- ПЕРВЫЙ ВЗНОС -->
+  <div class="card">
+    <div class="field-label">Первоначальный взнос</div>
+    <div class="seg" id="pv-seg">
+      <button class="seg-btn" data-pv="30">30%</button>
+      <button class="seg-btn" data-pv="40">40%</button>
+      <button class="seg-btn" data-pv="50">50%</button>
+      <button class="seg-btn" data-pv="60">60%</button>
+      <button class="seg-btn" data-pv="70">70%</button>
+    </div>
+  </div>
+
+  <!-- СРОК -->
+  <div class="card">
+    <div class="field-label">Срок рассрочки</div>
+    <div class="seg" id="term-seg">
+      <button class="seg-btn" data-term="6">6 мес</button>
+      <button class="seg-btn" data-term="12">12 мес</button>
+      <button class="seg-btn" data-term="18">18 мес</button>
+      <button class="seg-btn" data-term="24">24 мес</button>
+    </div>
+  </div>
+
+  <!-- РЕЗУЛЬТАТ -->
+  <div class="result-card">
+    <div class="result-card__label">Ежемесячный платёж</div>
+    <div class="result-card__value" id="monthly">— <span>₽/мес</span></div>
+  </div>
+
+  <div class="card">
+    <div class="result-row">
+      <span class="result-row__label">Первоначальный взнос</span>
+      <span class="result-row__val" id="pv-sum">—</span>
+    </div>
+    <div class="result-row">
+      <span class="result-row__label">Остаток в рассрочку</span>
+      <span class="result-row__val" id="rest-sum">—</span>
+    </div>
+    <div class="result-row">
+      <span class="result-row__label">Срок</span>
+      <span class="result-row__val" id="term-display">—</span>
+    </div>
+  </div>
+
+  <p class="note">Расчёт ориентировочный. Уточняйте условия у менеджера отдела продаж.</p>
+
+</div>
+
+<script>
+(function(){
+  var pv = 30, term = 12;
+
+  function fmt(n) {
+    return Math.round(n).toLocaleString('ru-RU') + ' ₽';
+  }
+
+  function calc() {
+    var price = parseFloat(document.getElementById('price').value) || 0;
+    var pvSum = price * pv / 100;
+    var rest  = price - pvSum;
+    var monthly = term > 0 ? rest / term : 0;
+
+    document.getElementById('monthly').innerHTML = fmt(monthly) + '<span>₽/мес</span>';
+    document.getElementById('pv-sum').textContent = fmt(pvSum);
+    document.getElementById('rest-sum').textContent = fmt(rest);
+    document.getElementById('term-display').textContent = term + ' мес.';
+  }
+
+  function activate(seg, attr, val) {
+    seg.querySelectorAll('.seg-btn').forEach(function(b) {
+      b.classList.toggle('active', b.dataset[attr] == val);
+    });
+  }
+
+  // PV seg
+  var pvSeg = document.getElementById('pv-seg');
+  pvSeg.querySelectorAll('.seg-btn').forEach(function(b) {
+    b.addEventListener('click', function() {
+      pv = parseInt(b.dataset.pv);
+      activate(pvSeg, 'pv', pv);
+      calc();
+    });
+  });
+  activate(pvSeg, 'pv', 30);
+
+  // Term seg
+  var termSeg = document.getElementById('term-seg');
+  termSeg.querySelectorAll('.seg-btn').forEach(function(b) {
+    b.addEventListener('click', function() {
+      term = parseInt(b.dataset.term);
+      activate(termSeg, 'term', term);
+      calc();
+    });
+  });
+  activate(termSeg, 'term', 12);
+
+  // Price input
+  document.getElementById('price').addEventListener('input', calc);
+
+  calc();
+})();
+</script>
+</body>
+</html>
